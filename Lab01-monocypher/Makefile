@@ -1,5 +1,5 @@
-frequency:
-	python frequency.py $(args) 
+frequency: frequency.py
+	python3 frequency.py $(ARGS)
 
-distance:
-	python frequency.py $(args) $(args)
+distance: distance.py
+	python3 distance.py $(ARGS)
