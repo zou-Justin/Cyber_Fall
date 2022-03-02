@@ -1,5 +1,5 @@
 frequency: frequency.py
-	python3 frequency.py $(ARGS)
+	python frequency.py $(ARGS)
 
 distance: distance.py
-	python3 distance.py $(ARGS)
+	python distance.py $(ARGS)
