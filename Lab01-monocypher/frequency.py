@@ -3,7 +3,6 @@ import math
 
 def Read(fileName):
     alphabet = list(string.ascii_letters)
-    print(alphabet)
     dict = {}
     for k in range(52):
         dict[alphabet[k]] = 0
@@ -19,16 +18,14 @@ def EuclidianDistance(fileName, baseFile):
     value = list(Read(fileName).values())
     value2 = list(Read(baseFile).values())
     for i in range(len(value)):
-        for j in range(len(value2)):
-            distance += ((value[i] - value2[j]) ** 2)
+        distance += ((value[i] - value2[i]) ** 2)
     return math.sqrt(distance)
 
-# print(EuclidianDistance("temp.txt","temp2.txt"))
+print(EuclidianDistance("temp.txt","temp2.txt"))
 
-values = Read('temp.txt').values()
-print(values)
-total = sum(values)
-key_list = list(Read('temp.txt').keys())
-val_list = list(values)
-for i in range(52):
-    print(key_list[i] + " " + str(val_list[i]/total))
+# values = Read('temp.txt').values()
+# total = sum(values)
+# key_list = list(Read('temp.txt').keys())
+# val_list = list(values)
+# for i in range(52):
+#     print(key_list[i] + " " + str(val_list[i]/total))
