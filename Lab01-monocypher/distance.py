@@ -1,4 +1,3 @@
-from email.mime import base
 from frequency import Read
 import math
 import sys
