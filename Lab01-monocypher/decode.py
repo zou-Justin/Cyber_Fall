@@ -5,20 +5,39 @@ import sys
 #reverse alphabet is a different case from simply shifiting down by 1 so account for it
 def decode(Caesar_text = sys.argv[1]):
     newText = ""
-    while True:
+    file = ""
+    minimumDistance = 1000
+    shiftedText = ""
+    for i in range(26):
         dist = EuclidianDistance(Caesar_text,"temp.txt")
-        if (dist <= .019):
-            with open(Caesar_text,'r') as file:
-                newText = file.read()
-            return newText
-        else:
-            shift(Caesar_text)
+        # print(dist, minimumDistance)
+        file = open(Caesar_text,'r')
+        fileRead = file.read()
+        file.close()
+        if (dist < minimumDistance):
+            minimumDistance = dist
+            newText = fileRead
+            print(i)
+        shiftedText = shift(fileRead)
+        wFile = open(Caesar_text, "w")
+        wFile.write(shiftedText)
+        wFile.close()
+    return newText
 
 def shift(Text):
-    for i in Text:
-        chr(ord(i)+1)
+    text = ""
+    for char in Text:
+        if (char.isupper()):
+            text += chr((ord(char)- 65 + 1) % 26 + 65)
+            # print("Hellow")
+        elif (char.islower()):
+            text += chr((ord(char)- 97 + 1) % 26 + 97)
+            # print("Hellw")
+        else:
+            text += char
+    return text
 
 if __name__ == '__main__':
     decode()
-
+   
 

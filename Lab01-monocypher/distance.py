@@ -2,7 +2,7 @@ from frequency import Read
 import math
 import sys
 
-def EuclidianDistance(fileName = sys.argv[1], baseFile = sys.argv[2]):
+def EuclidianDistance(fileName, baseFile):
     distance = 0
     value = list(Read(fileName).values())
     total = sum(Read(fileName).values())
