@@ -1,4 +1,4 @@
-
+#copy and paste the alice frequency value and hard code it in
 def Decypher(N):
     file = open('Cipher.txt','r')
     fileText = file.read()
