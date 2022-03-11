@@ -1,4 +1,11 @@
+import sys
+import string
+
+
 def encode():
-    for i,k in range(100):
-        print(i,k)
+    Alphabet = string.ascii_uppercase
+    dict = {}
+    for i in Alphabet:
+        dict[i] = ord(i) - 65
+    print(dict)
 encode()
