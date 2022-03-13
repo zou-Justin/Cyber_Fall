@@ -23,4 +23,4 @@ def encode(fileName, keyFile):
 
 
 if __name__ == '__main__':
-    print(encode("temp.txt","temp2.txt"))
+    print(encode(sys.argv[1],sys.argv[2]))

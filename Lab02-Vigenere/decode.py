@@ -21,4 +21,4 @@ def decode(fileName, keyFile):
     return newText
 
 if __name__ == '__main__':
-    print(decode("temp.txt","temp2.txt"))
+    print(decode(sys.argv[1],sys.argv[2]))
