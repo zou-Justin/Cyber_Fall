@@ -97,37 +97,35 @@ def guessKeyLength(fileName):
 
 def Decypher(fileName):
     file = open(fileName,'r')
-    Length = 0
+    Length = 1
     fileText = file.read()
     piles = [""] * Length
     strName = "Pile"
+    finalText = ""
+    actualFinalText = ""
+    minimumDistance = 0
+    Decode = ""
     for j in range(16):
         for i in range(len(fileText)):
             for k in range(Length):
                 if i % Length == k:
                     piles[i%Length] += fileText[i]
         for i in range(Length):
-            Pile1 = open(strName + i,'w')
+            Pile1 = open(strName + str(i),'w')
             Decode = decode(Pile1)
             for i in range(len(Decode)):
-                finalText += decode[i]
+                finalText += decode[i % Length][i / Length]
+        pile23 = open('newText.txt','w')
+        pile23.write(finalText)
+        pile23.close()
+        dist = EuclidianDistance('newText.txt',"temp.txt")
+        if (dist < minimumDistance):
+            minimumDistance = dist
+            p = open('newText.txt','r')
+            actualFinalText = p.read()
+            finalText = ""
+        Length+=1
+    return actualFinalText
 
-    # Pile1.write(pile1)
-    # Pile1.close()
-    # Pile2 = open('Pil2','w')
-    # Pile2.write(pile2)
-    # Pile2.close()
-    # Pile3 = open('Pil3','w')
-    # something like if finalText.txt euclidian distance is close to english then its fine otherwise its bad
-    # Pile3.write(pile3)
-    # Pile3.close()
-    # Pile4 = open('Pil4','w')
-    # Pile4.write(pile4)
-    # Pile4.close()
-    # # DecodeP1 = decode('Pil1')
-    # # DecodeP2 = decode('Pil2')
-    # # DecodeP3 = decode('Pil3')
-    # # DecodeP4 = decode('Pil4')
-    # finalText = ""
-    # for i in range(len(DecodeP4)):
-    #     finalText += DecodeP1[i] + DecodeP2[i] + DecodeP3[i] + DecodeP4[i]
+if __name__ == '__main__':
+    print(Decypher("temp2.txt"))
