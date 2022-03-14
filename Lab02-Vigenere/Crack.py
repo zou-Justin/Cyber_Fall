@@ -2,6 +2,7 @@
 import sys
 import string
 import math
+import os
 
 def Read(fileName):
     alphabet = list(string.ascii_lowercase)
@@ -15,8 +16,6 @@ def Read(fileName):
                     dict[alphabet[k]] += 1;  
     return dict
 
-
-
 def EuclidianDistance(fileName, baseFile):
     distance = 0
     value = list(Read(fileName).values())
@@ -26,6 +25,21 @@ def EuclidianDistance(fileName, baseFile):
     for i in range(len(value)):
         distance += (((value[i]/total) - (value2[i]/total2)) ** 2)
     return math.sqrt(distance)
+
+
+# def EuclidianDistance(fileName, baseFile):
+#     distance = 0
+#     value = list(Read(fileName).values())
+#     total = sum(Read(fileName).values())
+#     value2 = list(Read(baseFile).values())
+#     total2 = sum(Read(baseFile).values())
+#     for i in range(len(value)):
+#         distance += (((value[i]/total) - (value2[i]/total2)) ** 2)
+#     return math.sqrt(distance)
+
+
+
+
 
 def decode(Caesar_text):
     newText = ""
@@ -95,36 +109,48 @@ def guessKeyLength(fileName):
     pass
 
 
+
+
 def Decypher(fileName):
     file = open(fileName,'r')
     Length = 1
     fileText = file.read()
-    piles = [""] * Length
+    file.close()
     strName = "Pile"
     finalText = ""
     actualFinalText = ""
-    minimumDistance = 0
+    minimumDistance = 1000
     Decode = ""
     for j in range(16):
+        piles = [""] * Length
         for i in range(len(fileText)):
             for k in range(Length):
                 if i % Length == k:
                     piles[i%Length] += fileText[i]
         for i in range(Length):
             Pile1 = open(strName + str(i),'w')
-            Decode = decode(Pile1)
+            Pile1.write(piles[i%Length])
+            Pile1.close()
+            Decode = decode(strName + str(i))
             for i in range(len(Decode)):
-                finalText += decode[i % Length][i / Length]
+                finalText += piles[i % Length][i//Length]
         pile23 = open('newText.txt','w')
         pile23.write(finalText)
         pile23.close()
         dist = EuclidianDistance('newText.txt',"temp.txt")
-        if (dist < minimumDistance):
-            minimumDistance = dist
+        if (dist <= 0.02):
+            # minimumDistance = dist
             p = open('newText.txt','r')
             actualFinalText = p.read()
+            p.close()
             finalText = ""
+            return actualFinalText
+        for i in range(Length):
+            os.remove(strName + str(i))
         Length+=1
+        os.remove('newText.txt')
+        
+        
     return actualFinalText
 
 if __name__ == '__main__':
