@@ -17,14 +17,6 @@ def Read(fileName):
         dict[alphabet[i]] = dict[alphabet[i]]/total; 
     return dict
 
-def EuclidianDistance(fileName, baseFile):
-    distance = 0
-    alphabet = list(string.ascii_lowercase)
-    value = Read(fileName)
-    value2 = Read(baseFile)
-    for i in alphabet:
-        distance += ((value[i] - value2[i]) ** 2)
-    return math.sqrt(distance)
 
 def readAlice(temp):
     file = open(temp,'r')
@@ -34,6 +26,19 @@ def readAlice(temp):
     return text
 
 a = readAlice("temp.txt")
+alice = Read(a)
+
+
+def EuclidianDistance(fileName):
+    distance = 0
+    alphabet = list(string.ascii_lowercase)
+    value = Read(fileName)
+    value2 = alice
+    for i in alphabet:
+        distance += ((value[i] - value2[i]) ** 2)
+    return math.sqrt(distance)
+
+
 
 def h(Caesar_text):
     newText = ""
@@ -41,7 +46,7 @@ def h(Caesar_text):
     minimumDistance = 1000
     shiftedText = ""
     for i in range(26):
-        dist = EuclidianDistance(Caesar_text,a)
+        dist = EuclidianDistance(Caesar_text)
         if (dist < minimumDistance):
             minimumDistance = dist
             newText = Caesar_text
@@ -84,15 +89,9 @@ def shift(Text):
             text += char
     return text
 # up to 16 length
-def guessKeyLength(fileName):
-    pass
-
-
-
-
 def Decypher(fileName):
     file = open(fileName,'r')
-    Length = 5
+    Length = 1
     fileText = file.read()
     file.close()
     strName = "Pile"
@@ -100,50 +99,28 @@ def Decypher(fileName):
     actualFinalText = ""
     minimumDistance = 1
     Decode = ""
-    # for j in range(5):
-    piles = [""] * Length
-    for i in range(len(fileText)):
-        if i % Length == 0:
-                piles[i%Length] += fileText[i]
-        elif i % Length == 1:
-                piles[i%Length] += fileText[i]
-        elif i % Length == 2:
-                piles[i%Length] += fileText[i]
-        elif i % Length == 3:
-                piles[i%Length] += fileText[i]
-        elif i % Length == 4:
-                piles[i%Length] += fileText[i]
-        # elif i % Length == 0:
-        #         piles[i%Length] += fileText[i]
-        
-        # for k in range(Length):
-    print(piles[0])
-    for i in range(Length):
-        Pile1 = piles[i]
-        Decode = h(Pile1)
-        print(Decode + "  hello")
-    #     Pile1 = open(strName + str(i),'w')
-    #     Pile1.truncate()
-    #     Pile1.write(Decode)
-    #     Pile1.close()
-    # for i in range(len(fileText)):
-    #     p = open(strName + str(i % Length))
-    #     finalText += p.read()[i//Length]
-    # pile23 = open('newText.txt','w')
-    # pile23.write(finalText)
-    # pile23.close()
-    # print(finalText)
-    # dist = EuclidianDistance('newText.txt',"temp.txt")
-    # if (dist <= 0.05):
-    #     minimumDistance = dist
-    #     p = open('newText.txt','r')
-    #     actualFinalText = p.read()
-    #     p.close()
-    # finalText = ""
-    # #Length+=1
-    # return actualFinalText
+    for j in range(16):
+        piles = [""] * Length
+        for i in range(len(fileText)):
+            if fileText[i].isupper() or fileText[i].islower():
+                for k in range(Length):
+                    if i % Length == k:
+                            piles[i%Length] += fileText[i]  
+        for i in range(Length):
+            Pile1 = piles[i]
+            Decode = h(Pile1)
+            piles[i] = Decode
+        for i in range(len(fileText)):
+            finalText += piles[i%Length][i//Length]
+        dist = EuclidianDistance(finalText)
+        if (dist <= minimumDistance):
+            minimumDistance = dist
+            actualFinalText = finalText
+        finalText = ""
+        Length+=1
+    return actualFinalText
 
 if __name__ == '__main__':
     # Read('hello darkness')
-    #print(Decypher("temp2.txt"))
-    print(h('Jmqi rhybbyw, qdt jxu ibyjxo jelui. Tyt wohu qdt wycrbu yd jxu mqru: Qbb cycio muhu jxu rehewelui, Qdt jxu cecu hqjxi ekjwhqru'))
+    print(Decypher("temp2.txt"))
+    #print(h('Jmqi rhybbyw, qdt jxu ibyjxo jelui. Tyt wohu qdt wycrbu yd jxu mqru: Qbb cycio muhu jxu rehewelui, Qdt jxu cecu hqjxi ekjwhqru'))
