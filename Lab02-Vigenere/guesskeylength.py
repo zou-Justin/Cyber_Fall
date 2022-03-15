@@ -40,4 +40,4 @@ def guessKey(fileName):
 
 
 if __name__ == '__main__':
-    print(guessKey("temp2.txt"))
+    print(guessKey(sys.argv[1]))

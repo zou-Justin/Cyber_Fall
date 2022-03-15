@@ -122,4 +122,4 @@ def Decypher(fileName):
     return actualFinalText
 
 if __name__ == '__main__':
-    print(Decypher("temp2.txt"))
+    print(Decypher(sys.argv[1]))
