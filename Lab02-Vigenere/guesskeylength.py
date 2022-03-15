@@ -18,7 +18,6 @@ def guessKey(fileName):
     for j in range(16):
         piles = [""] * Length
         for i in range(len(fileText)):
-            if fileText[i].isalpha():
                 for k in range(Length):
                     if i % Length == k:
                             piles[i%Length] += fileText[i]  
@@ -27,7 +26,6 @@ def guessKey(fileName):
             Decode = h(Pile1)
             piles[i] = Decode
         for i in range(len(fileText)):
-            if fileText[i].isalpha():
                 finalText += piles[i%Length][i//Length]
         dist = EuclidianDistance(finalText)
         if (dist <= minimumDistance):
