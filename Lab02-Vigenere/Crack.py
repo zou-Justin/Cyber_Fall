@@ -102,7 +102,7 @@ def Decypher(fileName):
     for j in range(16):
         piles = [""] * Length
         for i in range(len(fileText)):
-            if fileText[i].isupper() or fileText[i].islower():
+            if fileText[i].isalpha():
                 for k in range(Length):
                     if i % Length == k:
                             piles[i%Length] += fileText[i]  
@@ -111,7 +111,8 @@ def Decypher(fileName):
             Decode = h(Pile1)
             piles[i] = Decode
         for i in range(len(fileText)):
-            finalText += piles[i%Length][i//Length]
+            if fileText[i].isalpha():
+                finalText += piles[i%Length][i//Length]
         dist = EuclidianDistance(finalText)
         if (dist <= minimumDistance):
             minimumDistance = dist
@@ -121,6 +122,4 @@ def Decypher(fileName):
     return actualFinalText
 
 if __name__ == '__main__':
-    # Read('hello darkness')
     print(Decypher("temp2.txt"))
-    #print(h('Jmqi rhybbyw, qdt jxu ibyjxo jelui. Tyt wohu qdt wycrbu yd jxu mqru: Qbb cycio muhu jxu rehewelui, Qdt jxu cecu hqjxi ekjwhqru'))
