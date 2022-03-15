@@ -10,82 +10,21 @@ def Read(fileName):
     for k in range(26):
         dict[alphabet[k]] = 0
     for i in fileName:
-        for k in range(26): 
-            if alphabet[k] == i.lower(): 
-                dict[alphabet[k]] += 1;  
+        if i.isupper() or i.islower():
+            dict[i.lower()] += 1;  
+    total = sum(dict.values())
+    for i in range(26):
+        dict[alphabet[i]] = dict[alphabet[i]]/total; 
     return dict
 
-# def ReadFile(fileName):
-#     alphabet = list(string.ascii_lowercase)
-#     dict = {}
-#     for k in range(26):
-#         dict[alphabet[k]] = 0
-#     with open(fileName,'r') as file:
-#         for i in file.read():
-#             for k in range(26): 
-#                 if alphabet[k] == i.lower(): 
-#                     dict[alphabet[k]] += 1;  
-#     return dict
 def EuclidianDistance(fileName, baseFile):
     distance = 0
-    value = list(Read(fileName).values())
-    total = sum(Read(fileName).values())
-    value2 = list(Read(baseFile).values())
-    total2 = sum(Read(baseFile).values())
-    for i in range(len(value)):
-        distance += (((value[i]/total) - (value2[i]/total2)) ** 2)
+    alphabet = list(string.ascii_lowercase)
+    value = Read(fileName)
+    value2 = Read(baseFile)
+    for i in alphabet:
+        distance += ((value[i] - value2[i]) ** 2)
     return math.sqrt(distance)
-
-
-# def EuclidianDistance(fileName):
-#     distance = 0
-#     value = list(Read(fileName).values())
-#     total = sum(Read(fileName).values())
-#     value2 = list(Read(baseFile).values())
-#     total2 = sum(Read(baseFile).values())
-#     for i in range(len(value)):
-#         distance += (((value[i]/total) - (value2[i]/total2)) ** 2)
-#     return math.sqrt(distance)
-
-
-
-# def h(Caesar_text):
-#     newText = ""
-#     file = ""
-#     minimumDistance = 1000
-#     shiftedText = ""
-#     for i in range(26):
-#         dist = EuclidianDistance(Caesar_text,"temp.txt")
-#         file = open(Caesar_text,'r')
-#         fileRead = file.read()
-#         file.close()
-#         if (dist < minimumDistance):
-#             minimumDistance = dist
-#             newText = fileRead
-#         shiftedText = shift(fileRead)
-#         wFile = open(Caesar_text, "w")
-#         wFile.write(shiftedText)
-#         wFile.close()
-#     file2 = open(Caesar_text,'r')
-#     fileRead = file2.read()
-#     file2.close()
-#     shiftedText = reverseShift(fileRead)
-#     wFile = open(Caesar_text, "w")
-#     wFile.write(shiftedText)
-#     wFile.close()
-#     for i in range(26):
-#         dist = EuclidianDistance(Caesar_text,"temp.txt")
-#         file = open(Caesar_text,'r')
-#         fileRead = file.read()
-#         file.close()
-#         if (dist < minimumDistance):
-#             minimumDistance = dist
-#             newText = fileRead
-#         shiftedText = shift(fileRead)
-#         wFile = open(Caesar_text, "w")
-#         wFile.write(shiftedText)
-#         wFile.close()
-#     return newText
 
 def readAlice(temp):
     file = open(temp,'r')
@@ -108,15 +47,15 @@ def h(Caesar_text):
             newText = Caesar_text
         shiftedText = shift(Caesar_text)
         Caesar_text = shiftedText
-    shiftedText = reverseShift(Caesar_text)
-    Caesar_text = shiftedText
-    for i in range(26):
-        dist = EuclidianDistance(Caesar_text,a)
-        if (dist < minimumDistance):
-            minimumDistance = dist
-            newText = Caesar_text
-        shiftedText = shift(Caesar_text)
-        Caesar_text = shiftedText
+    # shiftedText = reverseShift(Caesar_text)
+    # Caesar_text = shiftedText
+    # for i in range(26):
+    #     dist = EuclidianDistance(Caesar_text,a)
+    #     if (dist < minimumDistance):
+    #         minimumDistance = dist
+    #         newText = Caesar_text
+    #     shiftedText = shift(Caesar_text)
+    #     Caesar_text = shiftedText
     return newText
 
 def reverseShift(Text):
@@ -205,5 +144,6 @@ def Decypher(fileName):
     # return actualFinalText
 
 if __name__ == '__main__':
-    print(Decypher("temp2.txt"))
-    # print(h('Jmqi rhybbyw, qdt jxu ibyjxo jelui. Tyt wohu qdt wycrbu yd jxu mqru: Qbb cycio muhu jxu rehewelui, Qdt jxu cecu hqjxi ekjwhqru'))
+    # Read('hello darkness')
+    #print(Decypher("temp2.txt"))
+    print(h('Jmqi rhybbyw, qdt jxu ibyjxo jelui. Tyt wohu qdt wycrbu yd jxu mqru: Qbb cycio muhu jxu rehewelui, Qdt jxu cecu hqjxi ekjwhqru'))
