@@ -16,4 +16,3 @@ def hexFile(fileName):
 
 
 print(hexFile('test.txt'))
-print(hex(1))
