@@ -6,6 +6,7 @@ def xorEncode(fileName,keyFile):
     keyHex = hexFile(keyFile)
     fileBinary = ""
     keyBinary = ""
+    finalText = ""
     for i in fileHex:
         if i.isalnum():
             if len(bin(int(i,16)).lstrip("0b")) == 3:
@@ -30,12 +31,17 @@ def xorEncode(fileName,keyFile):
                 keyBinary += "0000" + bin(int(i,16)).lstrip("0b")
             elif len(bin(int(i,16)).lstrip("0b")) >= 4:
                 keyBinary += bin(int(i,16)).lstrip("0b")
+    for i in range(len(fileBinary)):
+       a = int(fileBinary[i],2) ^ int(keyBinary[i % len(keyBinary)],2)
+       print(a)
+    # for i in a:
+    #     finalText += i
     # with open(fileName,'rb') as file1,open(keyFile,'rb') as file2,open(keyFile,'wb') as file3:
     #     file = file1.read()
     #     key = file2.read()
     #     for i in range(len(file1.read())):
     #         a = (file[i] ^ key[i % len(key.read())])
     #     file3.write(a)
-
+    return finalText
 if __name__ == '__main__':
     xorEncode(sys.argv[1],sys.argv[2])
