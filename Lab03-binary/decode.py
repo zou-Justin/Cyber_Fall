@@ -1,4 +1,3 @@
-from cgi import test
 import sys
 from hexread import hexFile
 from binascii import unhexlify

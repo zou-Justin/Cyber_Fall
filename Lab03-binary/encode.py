@@ -9,7 +9,6 @@ def xorEncode(fileName,keyFile,cipherInput):
     fileBinary = ""
     keyBinary = ""
     finalText = ""
-    hexcode = ""
     for i in fileHex:
         if i.isalnum():
             if len(bin(int(i,16)).lstrip("0b")) == 3:
