@@ -6,8 +6,6 @@ from binascii import unhexlify
 def xorDecode(fileName,keyFile):
     fileHex = hexFile(fileName)
     keyHex = hexFile(keyFile)
-    print(fileHex)
-    print(keyHex)
     fileBinary = ""
     keyBinary = ""
     finalText = ""

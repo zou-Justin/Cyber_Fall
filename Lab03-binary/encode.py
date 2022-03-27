@@ -42,6 +42,5 @@ def xorEncode(fileName,keyFile,cipherInput):
     with open(cipherInput,'wb') as file1:
         file1.write(unhexlify(b))
 
-
 if __name__ == '__main__':
     xorEncode(sys.argv[1],sys.argv[2],sys.argv[3])

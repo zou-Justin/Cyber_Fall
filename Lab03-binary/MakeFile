@@ -1,0 +1,8 @@
+decode: decode.py
+	@python3 decode.py $(ARGS)
+
+encode: encode.py
+	@python3 encode.py $(ARGS)
+
+hexdump: hexread.py
+	@python3 hexread.py $(ARGS)
