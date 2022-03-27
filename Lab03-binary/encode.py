@@ -1,5 +1,7 @@
 import sys
 from hexread import hexFile
+import binascii
+from binascii import unhexlify
 
 def xorEncode(fileName,keyFile,cipherInput):
     fileHex = hexFile(fileName)
@@ -35,13 +37,11 @@ def xorEncode(fileName,keyFile,cipherInput):
     for i in range(len(fileBinary)):
        a = int(fileBinary[i],2) ^ int(keyBinary[i % len(keyBinary)],2)
        finalText += str(a)
-    print(finalText)
     b = hex(int(finalText,2))
     b = b.lstrip('0x')
-    print(b)
-    # with open(cipherInput,'wb') as file1:
-    #     for i in finalText:
-    #         c = int(i).to_bytes(1,byteorder="big")
-    #         file1.write(c)
+    with open(cipherInput,'wb') as file1:
+        file1.write(unhexlify(b))
+
+        
 if __name__ == '__main__':
     xorEncode(sys.argv[1],sys.argv[2],sys.argv[3])
