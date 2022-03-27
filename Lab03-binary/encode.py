@@ -1,12 +1,13 @@
 import sys
 from hexread import hexFile
 
-def xorEncode(fileName,keyFile):
+def xorEncode(fileName,keyFile,cipherInput):
     fileHex = hexFile(fileName)
     keyHex = hexFile(keyFile)
     fileBinary = ""
     keyBinary = ""
     finalText = ""
+    hexcode = ""
     for i in fileHex:
         if i.isalnum():
             if len(bin(int(i,16)).lstrip("0b")) == 3:
@@ -33,15 +34,14 @@ def xorEncode(fileName,keyFile):
                 keyBinary += bin(int(i,16)).lstrip("0b")
     for i in range(len(fileBinary)):
        a = int(fileBinary[i],2) ^ int(keyBinary[i % len(keyBinary)],2)
-       print(a)
-    # for i in a:
-    #     finalText += i
-    # with open(fileName,'rb') as file1,open(keyFile,'rb') as file2,open(keyFile,'wb') as file3:
-    #     file = file1.read()
-    #     key = file2.read()
-    #     for i in range(len(file1.read())):
-    #         a = (file[i] ^ key[i % len(key.read())])
-    #     file3.write(a)
-    return finalText
+       finalText += str(a)
+    print(finalText)
+    b = hex(int(finalText,2))
+    b = b.lstrip('0x')
+    print(b)
+    # with open(cipherInput,'wb') as file1:
+    #     for i in finalText:
+    #         c = int(i).to_bytes(1,byteorder="big")
+    #         file1.write(c)
 if __name__ == '__main__':
-    xorEncode(sys.argv[1],sys.argv[2])
+    xorEncode(sys.argv[1],sys.argv[2],sys.argv[3])
