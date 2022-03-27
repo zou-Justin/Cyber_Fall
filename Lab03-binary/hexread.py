@@ -11,8 +11,8 @@ def hexFile(fileName):
                 hexcode += "0" + hex(ord(i)).lstrip("0x")
             else:
                 hexcode += hex(ord(i)).lstrip("0x")
-    finalText = ' '.join(hexcode[i:i+4] for i in range(0,len(hexcode),3))
+    finalText = ' '.join(hexcode[i:i+4] for i in range(0,len(hexcode),4))
     return finalText
 
-
-print(hexFile('test.txt'))
+if __name__ == '__main__':
+    print(hexFile(sys.argv[1]))
