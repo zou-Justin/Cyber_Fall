@@ -38,7 +38,7 @@ def xorDecode(fileName,keyFile):
        finalText += str(a)
     f = hex(int(finalText,2))
     f = f.lstrip('0x')
-    return unhexlify(f.rstrip())
+    return unhexlify(f.rstrip()).decode()
 
 if __name__ == '__main__':
     print(xorDecode(sys.argv[1],sys.argv[2]))
