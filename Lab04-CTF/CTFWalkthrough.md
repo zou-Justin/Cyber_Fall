@@ -16,6 +16,7 @@ This question is a bit obscure since it only gives you close to no hints about i
 ## Question 7
 ## Question 8
 ## Question 10
+Question 10 is very intersting and may remind you of question 5. Essentially the trick around this question is to go into the HTML of the site and look at the div under Task 10. Look down far enough and you will be able to find the key you need in a paragraph tag. 
 ## Question 11
 ## Question 12
 ## Question 13
@@ -24,6 +25,7 @@ This question is a bit obscure since it only gives you close to no hints about i
 ## Question 16
 ## Question 17
 ## Question 18
+This question's prompt says `Sometimes we need a 'machine' to dig the past` and provides us with a website and date. This is referring to the popular web archive website, the wayback machine. In case you don't know how it works, it is essentially a site where you can paste URLs of websites into it and see how the website looked like in the past. Pasting the URL given to the wayback machine and going to January 2, 2020 gives us what we need to get the flag.
 ## Question 19
 ## Question 20
 ## Question 21
