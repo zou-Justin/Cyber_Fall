@@ -7,9 +7,11 @@ This question involves the Author Note, please click the accept button to contin
 Question 2 gives us a str of letters and numbers and asks us to decode this problem. Looking at this string, we see it ends with a double "==" which is typically seen in base 64. As a result, it is likely it should be encoded in base 64 and we should use a base 64 decoder accordingly. This can be found by simply googling a calculator online.
 
 ## Question 3
-This question gives you a simple description, `Meta Meta Meta` and a bunch of task files to download. Downloading them in, you see that you get an image file. This leads me to think that it is a metaData. Depending on what OS you are using there are different ways of getting the meta data from this image.
+This question gives you a simple description, Meta Meta Meta and a bunch of task files to download. Downloading them in, you see that you get an image file. This should get you to think about something known as metadata. It is something that every image that you take with your phone contains and is on most images online unless they were stripped away by the website. Depending on what OS you are using there are different ways of getting the meta data from this image. (something something something) After you get that you should be able to find the flag inside the image.
 ## Question 4
+
 ## Question 5
+This question is a bit obscure since it only gives you close to no hints about it. Perhaps if you were bored, you may have been highlighting around the question and you may see something interesting.
 ## Question 6
 ## Question 7
 ## Question 8
