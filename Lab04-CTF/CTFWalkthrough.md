@@ -7,15 +7,19 @@ This Task involves the Author Note, please click the accept button to continue
 Task 2 gives us a str of letters and numbers and asks us to decode this problem. Looking at this string, we see it ends with a double "==" which is typically seen in base 64. As a result, it is likely it should be encoded in base 64 and we should use a base 64 decoder accordingly. This can be found by simply googling a calculator online. Pasting in the text that they give us and decoding it should give us the correct answer.
 
 ## Task 3
-This task gives you a simple description, Meta Meta Meta and a bunch of task files to download. Downloading them in, you see that you get an image file. This should get you to think about something known as metadata. It is something that every image that you take with your phone contains and is on most images online unless they were stripped away by the website. Depending on what OS you are using there are different ways of getting the meta data from this image. (something something something) After you get that you should be able to find the flag inside the image.
+This task gives you a simple description, Meta Meta Meta and a  task file to download. Downloading it in, you see that you get an image file. This should get you to think about something known as metadata. It is something that every image that you take with your phone contains and is on most images online unless they were stripped away by the website. The easiest way to do this would be to search up a tool like EXIF tool, which reads in image data and gives it back to you in a readable manner. You should download the file accordingly for your OS and then drag your image file onto the executable. This should open up a terminal with information about the image. Go to the Owner part and you should see your answer.
 ## Task 4
+This task also requires the use of a another tool. This is known as Steghide. Steghide is essentially
 
 ## Task 5
 This task is a bit obscure since it only gives you close to no hints about it. Perhaps if you were bored, you may have been highlighting around the Task and you may see something interesting.
 ## Task 6
+This is a very simple task that revolves around the use of the QR code. It is something you can scan with your phone simply by going to your camera app and pointing it at the QR code. This would open up a prompt that gives you an external link to a website. For this task, once you donwload the file, you will see it is a QR code. Scan it and you will get the answer.
 ## Task 7
 ## Task 8
 This task is very similar to task 2, which gave a message that was decodable with base 64. Since the title of this task is `Another decoding stuff` and gives us a similar string of numbers then we can assume that we should do something similar to task 2 to solve the problem. Simplying looking at the string given, `3agrSy1CewF9v8ukcSkPSYm3oKUoByUpKG4L` it is not easy to tell what base we should be converting to. We can use the hint system to see that what we should use is base58, which is actually a common base and often used in Cryptocurrencies. Plugging it into a base58 decoder gives us our answer.
+## Task 9
+This task is a simple decoding problem. Looking at the tool they give us they state `Left, right, left, right... Rot 13 is too mainstream.` Rot 13 is a simple Caesar Cipher that replaces each letter with a letter 13 places down in the alphabet and is what the left, right part of the clue stands for. As a result, we can deduce that we should try using a Caesar Cipher decoder to decode the string. Sure enough, we get our answer from this. 
 ## Task 10
 Task 10 is very intersting and may remind you of Task 5. Essentially the trick around this Task is to go into the HTML of the site and look at the div under Task 10. Look down far enough and you will be able to find the key you need in a paragraph tag. 
 ## Task 11
