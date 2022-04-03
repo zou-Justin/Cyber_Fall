@@ -11,7 +11,7 @@ This task gives you a simple description, Meta Meta Meta and a bunch of task fil
 ## Task 4
 
 ## Task 5
-This Task is a bit obscure since it only gives you close to no hints about it. Perhaps if you were bored, you may have been highlighting around the Task and you may see something interesting.
+This task is a bit obscure since it only gives you close to no hints about it. Perhaps if you were bored, you may have been highlighting around the Task and you may see something interesting.
 ## Task 6
 ## Task 7
 ## Task 8
@@ -29,4 +29,7 @@ Task 10 is very intersting and may remind you of Task 5. Essentially the trick a
 This Task's prompt says `Sometimes we need a 'machine' to dig the past` and provides us with a website and date. This is referring to the popular web archive website, the wayback machine. In case you don't know how it works, it is essentially a site where you can paste URLs of websites into it and see how the website looked like in the past. Pasting the URL given to the wayback machine and going to January 2, 2020 gives us what we need to get the flag.
 ## Task 19
 ## Task 20
+Task 20 is quite hard to grasp at first, but looking at the title of `Small Bases` shows us that we are dealing with decoding something in a much smaller base than the previous questions dealing with similar concepts. This time we get a string of numbers that go from 0-9 but not above that which shows how this is a string in base 10. We now have to convert this to ascii (numbers that represent text) somehow and then convert that to text. The easiest way to do this is by converting it to hexadecimals, which is the easiest base to conver to text for humans. You can also get this by looking at the hint which shows this natural progression path. So the steps are to 
+1. Paste the string into a base10 to base16 decoder
+2. And paste that new string into a base16 to text converter, which should give you your final result
 ## Task 21
