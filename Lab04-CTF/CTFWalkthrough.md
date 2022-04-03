@@ -16,6 +16,7 @@ This task is a bit obscure since it only gives you close to no hints about it. P
 ## Task 6
 This is a very simple task that revolves around the use of the QR code. It is something you can scan with your phone simply by going to your camera app and pointing it at the QR code. This would open up a prompt that gives you an external link to a website. For this task, once you donwload the file, you will see it is a QR code. Scan it and you will get the answer.
 ## Task 7
+This task can be quite tricky to figure it out immediately. When you download the task file, you get the file hello.hello, which is not easy to know what to do with. However, look at the title and you realize you can read this file. Simply go to your terminal and go to the directory where hello.hello is located. Then you can `cat hello.hello` and look within the file. You will see the flag located somewhere inside.
 ## Task 8
 This task is very similar to task 2, which gave a message that was decodable with base 64. Since the title of this task is `Another decoding stuff` and gives us a similar string of numbers then we can assume that we should do something similar to task 2 to solve the problem. Simplying looking at the string given, `3agrSy1CewF9v8ukcSkPSYm3oKUoByUpKG4L` it is not easy to tell what base we should be converting to. We can use the hint system to see that what we should use is base58, which is actually a common base and often used in Cryptocurrencies. Plugging it into a base58 decoder gives us our answer.
 ## Task 9
