@@ -22,10 +22,15 @@ This task is very similar to task 2, which gave a message that was decodable wit
 ## Task 9
 This task is a simple decoding problem. Looking at the tool they give us they state `Left, right, left, right... Rot 13 is too mainstream.` Rot 13 is a simple Caesar Cipher that replaces each letter with a letter 13 places down in the alphabet and is what the left, right part of the clue stands for. As a result, we can deduce that we should try using a Caesar Cipher decoder to decode the string. Sure enough, we get our answer from this. 
 ## Task 10
-Task 10 is very intersting and may remind you of Task 5. Essentially the trick around this Task is to go into the HTML of the site and look at the div under Task 10. Look down far enough and you will be able to find the key you need in a paragraph tag. 
+Task 10 is very intersting and may remind you of Task 5. Essentially the trick around this Task is to go into the HTML of the site and look at the div under Task 10. To do this press `ctrl + shift + I` which will open up the web console. Go to the inspector tab and open up the tag for this question which should be Task 10. Look down far enough and you will be able to find the key you need in a paragraph tag. 
+
 ## Task 11
 ## Task 12
+This task is as the prompt says, inside one of Tryhackme's social accounts. More specifically, this is in their reddit account. By googling `TryHackMe rooms Reddit` and clicking the first link that pops up you should be able to get your answer.
+
+
 ## Task 13
+Task 13 gives a string that seems to be made up of just weird characters of pluses and minuses. People who have been on the deepest parts of the internet may recognize this to be the language `brainfuck` which uses only 8 commands, a data pointer and an instruction pointer. Googling up a brainfuck decoder and pasting this text in should give you the answer you need.
 ## Task 14
 ## Task 15
 ## Task 16
