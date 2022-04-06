@@ -28,16 +28,31 @@ This task is a simple decoding problem. Looking at the tool they give us they st
 Task 10 is very intersting and may remind you of Task 5. Essentially the trick around this Task is to go into the HTML of the site and look at the div under Task 10. To do this press `ctrl + shift + I` which will open up the web console. Go to the inspector tab and open up the tag for this question which should be Task 10. Look down far enough and you will be able to find the key you need in a paragraph tag. 
 
 ## Task 11
+This task is much more complicated than a lot of the tasks taht we have been doing so far but I believe in you! Essentially this revolves around the usage of being able to edit PNG files and fix them so you can display them. 
+1. First, you must realize that Images files are made up of a bunch of hexadecimals that can be found with the `xxd` command
+
+2. Second, every image file starts with the same header in the same order as shown in the table below, and without these values would fail to work properly. If you xxd the image file they give us, you would realize that the header is messed up and we need to fix it.
+
+| Values (hex) | Purpose |
+| ----------- | ----------- |
+| 89      | Has the high bit set to detect transmission systems that do not support 8-bit data and to reduce the chance that a text file is mistakenly interpreted as a PNG, or vice versa.       |
+| 50 4E 47   | In ASCII, the letters PNG, allowing a person to identify the format easily if it is viewed in a text editor        |
+| 0D 0A    | A DOS-style line ending (CRLF) to detect DOS-Unix line ending conversion of the data.       |
+| 1A  | A byte that stops display of the file under DOS when the command type has been used—the end-of-file character.        |
+| 0A  | A Unix-style line ending (LF) to detect Unix-DOS line ending conversion.        |
+
+3. Now for the editing portion. To do this in the easiest way possible we should save our image file to a text file so we can edit the hexadecimal easily and then convert that text file to an image file. To do this would be `xxd -p FILE.original > temp.txt` in order to convert the original file to a temp file. Then you can `nano temp.txt` or, however else you want to do it, and edit the header as shown in the table. Putting it in properly, we save temp.txt. Then we input it to a new file with `xxd -p -r temp > FILE.png` and then open up FILE.png. Here you will find your flag!
 ## Task 12
 This task is as the prompt says, inside one of Tryhackme's social accounts. More specifically, this is in their reddit account. By googling `TryHackMe rooms Reddit` and clicking the first link that pops up you should be able to get your answer.
 ## Task 13
 Task 13 gives a string that seems to be made up of just weird characters of pluses and minuses. People who have been on the deepest parts of the internet may recognize this to be the language `brainfuck` which uses only 8 commands, a data pointer and an instruction pointer. Googling up a brainfuck decoder and pasting this text in should give you the answer you need.
 ## Task 14
+Task 14 gives us two strings, S1 and S2 and tells us to find the flag from the two of these values. Notice how S1 is a string of hexadecimal numbers based on the letters and number combination while S2 is binary. The most common way when it comes to these two values is XOR, which is the `exclusive or` argument. It is hard to imagine with hexadecimal so imagine both strings were binary. If the first number of each string is the same, then the output of the XOR function should be a 0, if they are different then it should be a 1. This is useful because its a function that is reversible. Plugging these two values into a XOR decoder should do the trick and give us our answer.
 ## Task 15
 ## Task 16
 Task 16 uses another steganography tool, stegsolve. This a tool that allows you to input image files into it and you can look at this image file under mutiple lenses. For example you could increase the alpha, decrease the alpha, increase the amount of red, etc. This allows us to find hidden messages inside the images that may not be found normally. You can google how to download stegsolve, which can typically be found...
 ## Task 17
-So this task gives us yet another QR code for us to scan as seen in task 6. 
+So this task gives us yet another QR code for us to scan as seen in task 6. Simply scan it, which will take you to a Sound cloud with a 4 second clip. Listen to it and jot down the letters you hear as `THM{Letters You hear from the clip}`
 ## Task 18
 This Task's prompt says `Sometimes we need a 'machine' to dig the past` and provides us with a website and date. This is referring to the popular web archive website, the wayback machine. In case you don't know how it works, it is essentially a site where you can paste URLs of websites into it and see how the website looked like in the past. Pasting the URL given to the wayback machine and going to January 2, 2020 gives us what we need to get the flag.
 ## Task 19
