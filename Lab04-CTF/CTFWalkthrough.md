@@ -2,7 +2,7 @@
 In this walk through you would learn how to solve the CTF room provided by the site TRYHACKME. Lets get started!
 
 ## Task 1
-This Task involves the Author Note, please click the accept button to continue
+This Task involves the Author Note, please click the accept button to continue.
 ## Task 2
 Task 2 gives us a str of letters and numbers and asks us to decode this problem. Looking at this string, we see it ends with a double "==" which is typically seen in base 64. As a result, it is likely it should be encoded in base 64 and we should use a base 64 decoder accordingly. This can be found by simply googling a calculator online. Pasting in the text that they give us and decoding it should give us the correct answer.
 
@@ -49,11 +49,12 @@ Task 13 gives a string that seems to be made up of just weird characters of plus
 ## Task 14
 Task 14 gives us two strings, S1 and S2 and tells us to find the flag from the two of these values. Notice how S1 is a string of hexadecimal numbers based on the letters and number combination while S2 is binary. The most common way when it comes to these two values is XOR, which is the `exclusive or` argument. It is hard to imagine with hexadecimal so imagine both strings were binary. If the first number of each string is the same, then the output of the XOR function should be a 0, if they are different then it should be a 1. This is useful because its a function that is reversible. Plugging these two values into a XOR decoder should do the trick and give us our answer.
 ## Task 15
+This task refers to the use of using a tool known as `Binwalk`, which is a tool that is used to explore binary files for embedded files or executable code. You can `man binwalk` for more information on exactly how to use it and you can download it [here](https://blog.eldernode.com/install-and-use-binwalk-on-windows/). For this assignment, you can simply use the following command `binwalk -e hell.jpg`. If you do this on hell.jpg, you should get a folder called _hell.jpg.extracted. CD into it and you realize that there is a txt file here. Cat it open and you will get the flag you need.
 
 ## Task 16
-Task 16 uses another steganography tool, stegsolve. This a tool that allows you to input image files into it and you can look at this image file under mutiple lenses. For example you could increase the alpha, decrease the alpha, increase the amount of red, etc. This allows us to find hidden messages inside the images that may not be found normally. You can google how to download stegsolve, which can typically be found...
+Task 16 uses another steganography tool, stegsolve. This a tool that allows you to input image files into it and you can look at this image file under mutiple lenses. For example you could increase the alpha, decrease the alpha, increase the amount of red, etc. This allows us to find hidden messages inside the images that may not be found normally. You can google how to download stegsolve, which can typically be found [here](https://wiki.bi0s.in/steganography/stegsolve/). After downloading it, you can open up stegsolve with `java -jar stegsolve.jar`. Going to the blue alpha panel, you will see the flag.
 ## Task 17
-So this task gives us yet another QR code for us to scan as seen in task 6. Simply scan it, which will take you to a Sound cloud with a 4 second clip. Listen to it and jot down the letters you hear as `THM{Letters You hear from the clip}`
+So this task gives us yet another QR code for us to scan as seen in task 6. Simply scan it, which will take you to a Sound cloud with a 4 second clip. Listen to it and jot down the letters you hear it in this format: `THM{Letters You hear from the clip}`
 ## Task 18
 This Task's prompt says `Sometimes we need a 'machine' to dig the past` and provides us with a website and date. This is referring to the popular web archive website, the wayback machine. In case you don't know how it works, it is essentially a site where you can paste URLs of websites into it and see how the website looked like in the past. Pasting the URL given to the wayback machine and going to January 2, 2020 gives us what we need to get the flag.
 ## Task 19
@@ -63,3 +64,9 @@ Task 20 is quite hard to grasp at first, but looking at the title of `Small Base
 1. Paste the string into a base10 to base16 decoder
 2. And paste that new string into a base16 to text converter, which should give you your final result
 ## Task 21
+This task is very difficult if you do not know what software you would need, especially since the hint for this question is not particulary useful. However, notice that the file you download is a `pcapng` file which would typically be used along software like wireshark, which you can download [here](https://www.wireshark.org/). After downloading all of the requirements of wireshark, you should 
+1. Open up the pcang file by double clicking it, which will open up wireshark
+2. Press `Ctrl + F` and search by String
+3. Type in `THM`
+4. Go to the final part of the files and look at the one that says ok (text/plain)
+5. Click on it and you should be able to see the flag you wanted.
