@@ -12,7 +12,17 @@ import java.util.Arrays;
   */
   String reassemble(ArrayList<Integer> parts){
     String ans = "";
-
+    for (int i =0; i < parts.size();i++){
+      if (i % 4 == 0){
+        parts[i] = parts[i] << 6;
+      }
+      else if (i % 4 == 1){
+        parts[i] = parts[i] << 4; 
+      }
+      else if (i % 4 == 2){
+        parts[i] = parts[i] << 2;      
+      }
+    
     /**
      * loop through the parts list, and append the decoded characters to the ans String
      * You may use another loop or list if you need, but it can be done here.
@@ -42,10 +52,10 @@ import java.util.Arrays;
 
       /***********complete this section! **********/
       //pixels that have red and blue values that end in 000 have secret hidden in the green channel
-      if( /*complete this boolean */){
+      if(lastThree(red) && lastThree(blue)){
         //the last 2 bits of the green channel is 1/4 of a character
         //extract the last 2 bits of the green channel and store in part of value
-        int partOfValue = /*complete this expression */;
+        int partOfValue = 3 /*complete this expression */;
         //add a 0,1,2 or 3 to the list of all the secret values
         data.add(partOfValue);
         count++;
