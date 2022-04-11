@@ -12,25 +12,13 @@ import java.util.Arrays;
   */
   String reassemble(ArrayList<Integer> parts){
     String ans = "";
-    for (int i =0; i < parts.size();i++){
-      if (i % 4 == 0){
-        parts[i] = parts[i] << 6;
-      }
-      else if (i % 4 == 1){
-        parts[i] = parts[i] << 4; 
-      }
-      else if (i % 4 == 2){
-        parts[i] = parts[i] << 2;      
-      }
-    
+    for (int i =0; i < parts.size();i+=4){
+       ans += (char)((parts.get(i) << 6) + (parts.get(i+1) << 4) + (parts.get(i+2) << 2) + (parts.get(i+3)));
+    }
     /**
      * loop through the parts list, and append the decoded characters to the ans String
      * You may use another loop or list if you need, but it can be done here.
      */
-
-
-
-
     return ans;
   }
 
@@ -55,7 +43,7 @@ import java.util.Arrays;
       if(lastThree(red) && lastThree(blue)){
         //the last 2 bits of the green channel is 1/4 of a character
         //extract the last 2 bits of the green channel and store in part of value
-        int partOfValue = 3 /*complete this expression */;
+        int partOfValue = green & 3 /*complete this expression */;
         //add a 0,1,2 or 3 to the list of all the secret values
         data.add(partOfValue);
         count++;
