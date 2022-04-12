@@ -10,18 +10,25 @@ void setup(){
   for (int i =0; i < data.length; i++){
     color c = img.pixels[i];
     color d = img2.pixels[i];
+    int red = (int)red(c);
+    int green = (int)green(c);
+    int blue = (int)blue(c);
+    int redM = (int)red(d);
+    int greenM = (int)green(d);
+    int blueM = (int)blue(d);
     if (c != d){
-      img.pixels[i] = color(0,0,0);
+      if ((red & 7) == 0 && ((blue & 7)== 0)){
+        if (red == redM && blue == blueM){
+          img.pixels[i] = color(0,(green&3) * 255/7,0);
+        }
+        else{
+          img.pixels[i] = color(255,0,255);
+        }
+      }
     }
     else{
       img.pixels[i] = color(255);
     }
-    //int red = (int)red(c);
-    //int green = (int)green(c);
-    //int blue = (int)blue(c);
-    //int redM = (int)red(d);
-    //int greenM = (int)green(d);
-    //int blueM = (int)blue(d);
   }
   img.updatePixels();
   image(img,0,0);
