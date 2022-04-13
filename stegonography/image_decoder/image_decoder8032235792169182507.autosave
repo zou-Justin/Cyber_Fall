@@ -12,8 +12,8 @@ import java.util.Arrays;
   */
   String reassemble(ArrayList<Integer> parts){
     String ans = "";
-    for (int i =0; i < parts.size();i+=4){
-       ans += (char)((parts.get(i) << 6) + (parts.get(i+1) << 4) + (parts.get(i+2) << 2) + (parts.get(i+3)));
+    for (int i =0; i < parts.size()*4;i*=4){
+       ans += (char)((parts.get(i*4) << 6) + (parts.get(i*4+1) << 4) + (parts.get(i*4+2) << 2) + (parts.get(i*4+3)));
     }
     /**
      * loop through the parts list, and append the decoded characters to the ans String
