@@ -2,8 +2,8 @@ import java.util.Arrays;
 
 void setup(){
   size(1200,600);
-  PImage img = loadImage("cat.png");
-  PImage img2 = loadImage("modifiedCat.png");
+  PImage img = loadImage("space.png");
+  PImage img2 = loadImage("modifiedSpace.png");
   img.loadPixels();
   img2.loadPixels();
   int[] data = new int[img.pixels.length];
@@ -16,14 +16,12 @@ void setup(){
     int redM = (int)red(d);
     int blueM = (int)blue(d);
     if (c != d){
-      if ((red & 7) == 0 && ((blue & 7)== 0)){
-        if (red == redM && blue == blueM){
-          img.pixels[i] = color(0,(green&3) * 255/2,0);
-        }
-        else{
-          img.pixels[i] = color(255,0,255);
-        }
+      if (red == redM && blue == blueM){
+        img.pixels[i] = color(0,(green&3) * 255/7,0);
       }
+      else{
+        img.pixels[i] = color(255,0,255);
+      }      
     }
     else{
       img.pixels[i] = color(255);
