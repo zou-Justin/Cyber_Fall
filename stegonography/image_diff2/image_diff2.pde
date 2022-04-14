@@ -46,17 +46,13 @@ void setup(){
     else{
       img.pixels[i] = color(255);
     }
-    if((blue & 7) == 0 && (blue != blueM)){
-      int partOfValue = blueM & 15;
+    if((blueM & 7) == 0){
+      int partOfValue = greenM & 3;
       data2.add(partOfValue);
       count++;
     }
   }
   println(reassemble(data2));
-  String[] aArray = new String[1];
-  aArray[0] = reassemble(data2);
-  
-  saveStrings("image.jpg", aArray);
   img.updatePixels();
   image(img,0,0);
 }
